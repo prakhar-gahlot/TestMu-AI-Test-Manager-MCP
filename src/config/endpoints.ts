@@ -105,6 +105,21 @@ export const endpoints = {
     // (update, above) and the single-instance PUT (updateInstance, above).
     bulkUpdateInstances: (testRunId: string): string =>
       `/api/v1/test-run/${encodeURIComponent(testRunId)}/bulk-update`,
+    // POST /api/atm/v1/hyperexecute - user-supplied curl sample (a documented
+    // LambdaTest endpoint, distinct from every other undocumented test-run
+    // endpoint above). Dispatches the given test_run_id's test cases to
+    // HyperExecute for REAL execution - a genuinely mutating, resource-
+    // consuming action (spins up real cloud infrastructure), unlike every
+    // other "test run" tool in this file, which only ever touches metadata.
+    // CONFIRMED LIVE: the test_run_id you submit is treated as a template -
+    // the response's own `test_run_id` field is a DIFFERENT, freshly created
+    // run holding the actual execution results; the submitted run stays
+    // "Not Started" and untouched. Callers must poll/inspect the run ID from
+    // the RESPONSE, not the one they sent. Only test cases whose own
+    // is_auteur_generated matches the run's (see tm.add_testCasesToTestRun)
+    // will execute - the request itself doesn't validate this, per
+    // established behavior throughout this API family.
+    trigger: "/api/atm/v1/hyperexecute",
   },
   organization: {
     // GET https://auth.lambdatest.com/api/organization/users?allUsers=true

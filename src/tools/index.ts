@@ -21,6 +21,7 @@ import { registerRemoveJiraIssueTool } from "./jira/removeJiraIssue.js";
 
 import { registerAddTestCasesToTestRunTool } from "./testRuns/addTestCasesToTestRun.js";
 import { registerBulkUpdateTestCaseInstancesTool } from "./testRuns/bulkUpdateTestCaseInstances.js";
+import { registerTriggerTestRunExecutionTool } from "./testRuns/triggerTestRunExecution.js";
 import { registerCreateTestRunTool } from "./testRuns/createTestRun.js";
 import { registerCreateTestRunFolderTool } from "./testRuns/createTestRunFolder.js";
 import { registerGetTestCaseInstanceByIdTool } from "./testRuns/getTestCaseInstanceById.js";
@@ -89,6 +90,7 @@ export function registerTools(server: McpServer, client: LambdaTestClient): void
   registerCreateTestRunTool(server, client);
   registerAddTestCasesToTestRunTool(server, client);
   registerBulkUpdateTestCaseInstancesTool(server, client);
+  registerTriggerTestRunExecutionTool(server, client);
   registerUpdateTestCaseInstanceTool(server, client);
   registerUpdateTestCaseInstanceStepTool(server, client);
   registerGetTestRunFoldersByProjectIdTool(server, client);
