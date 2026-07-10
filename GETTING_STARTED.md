@@ -17,7 +17,7 @@ for failures - all directly through conversation, without you needing to know th
 
 - **Node.js 22 or later** - check with `node --version`.
 - **npm** (comes with Node).
-- **A TestMu AI (LambdaTest) account with Test Manager access.**
+- **A TestMu AI account with Test Manager access.**
 - **An MCP-compatible AI client already installed** - e.g. Claude Desktop, Claude Code, Cursor,
   Windsurf, or any other client that supports MCP servers.
 
@@ -25,8 +25,8 @@ for failures - all directly through conversation, without you needing to know th
 
 This server authenticates to TestMu AI using HTTP Basic Auth with two values:
 
-- `LT_USERNAME` - your TestMu AI (LambdaTest) username.
-- `LT_ACCESS_KEY` - your TestMu AI (LambdaTest) access key.
+- `LT_USERNAME` - your TestMu AI username.
+- `LT_ACCESS_KEY` - your TestMu AI access key.
 
 Both are available from your account's **Account Settings > Password & Security** page. Keep
 these private - treat the access key like a password.
