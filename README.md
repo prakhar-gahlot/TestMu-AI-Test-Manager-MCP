@@ -88,15 +88,7 @@ src/
 
 ## Extending with New Tools
 
-1. Create a new file under the matching domain folder in `src/tools/` (or a new subfolder if it's
-   a new domain), e.g. `src/tools/testRuns/someNewTool.ts`.
-2. Export a `registerXTool(server, client)` function that calls `server.registerTool(...)` with
-   the tool's name (`tm.verb_noun` convention), a Zod input schema, and a handler. Use the
-   injected `client` (`get`/`post`/`patch`/`delete`/`postForm`) to call the API - never touch
-   axios directly - and read the path from `src/config/endpoints.ts` rather than hardcoding it.
-3. Parse the response defensively using the helpers in `src/utils/response.ts` rather than
-   assuming a strict shape - TestMu AI's actual API responses may diverge from published
-   docs when new features and fields are added.
-4. Import and invoke the new register function from `src/tools/index.ts`.
-
-Each tool file has a single responsibility: one tool per file, one file per tool.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the full set of conventions this project's tools
+follow (naming, file layout, input validation, response parsing, error handling, and rules for
+what belongs in a tool's own description vs. internal dev notes) - read it before adding a new
+tool, so the server keeps evolving consistently.
